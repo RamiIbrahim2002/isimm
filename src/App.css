@@ -1,38 +1,408 @@
-.App {
-  text-align: center;
+/* styles.css */
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom_container {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.video-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: clamp(10px, 8vw, 200px);
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+  
+    /* Add text shadow */
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
   }
+  
+.video-overlay-text-sub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 160%);
+    color: #fff;
+    font-size: 2vw;
+    text-align: center;
+    font-family: serif;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Set z-index to send it to the background */
+    filter: brightness(70%); /* You can adjust brightness if needed */
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+.box {
+    width: 100%;
+    height: 100vh; /* Set the height to cover the entire screen */
+    background-color: #191515;
+    background-image: url(../public/R.png);
+    position: fixed;
+    text-align: left;
+    z-index: 3;
+    opacity: 0;
+    transition: 0.5s;
+
 }
+
+:root{
+    --final-top : 0;
+}
+
+@keyframes slideDown {
+    from {
+        top: -100vh;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        top: 0;
+    }
+    to {
+        top: -100vh;
+    }
+}
+
+.open_box {
+    opacity: 1;
+    animation-name: slideDown;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.close_box {
+    opacity: 1;
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+  
+.menu_icon_box {
+    position: fixed;
+    left: 95%;
+    z-index: 4;
+    width: fit-content;
+    height: auto;
+    background-color: #fff;
+    margin: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transform: translateX(-100%);
+  }
+  ul {
+    list-style-type: none; /* Remove bullets from ul elements */
+  }
+  .line1,
+  .line2,
+  .line3 {
+    width: 40px;
+    height: 4px;
+    margin: 10px 8px;
+    background-color: #000;
+    border-radius: 50px;
+    transition: 0.2s;
+  }
+  
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .menu_icon_box {
+        margin: 15px;
+    }
+}
+
+@media (max-width: 968px) {
+    .menu_icon_box {
+        margin: 10px;
+    }
+
+    .col-4 {
+        max-width: 100%;
+        min-width: 500px;
+        overflow-y: hidden;
+        max-height: none;
+    }
+    li a {
+        padding: -25px;
+        font-size: x-large;
+    }
+}
+
+
+.active .line1 {
+    transform: translate(0px, 15px) rotate(45deg);
+}
+
+.active .line2 {
+    opacity: 0;
+}
+
+.active .line3 {
+    transform: translate(0px, -15px) rotate(-45deg);
+}
+
+nav {
+    padding-top: 10px;
+}
+.link1{
+    overflow-y: hidden;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    overflow-y: auto;
+    max-height: 400px;
+  
+    /* Scrollbar Styles */
+    scrollbar-width: thin;  /* For Firefox */
+    scrollbar-color: #888 #f1f1f1;  /* For Firefox */
+  
+    /* For WebKit Browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #554e4e;
+      border-radius: 10px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #3b3737;
+      border-radius: 10px;
+      border: 2px solid #555;
+    }
+  }
+  
+.nav-item {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 253, 253);
+    transition: width 0.3s;
+}
+
+.nav-item:hover::before {
+    width: 100%;
+}
+
+.nav-item:hover{
+    color: #fff;
+}
+.selected {
+    font-weight: bold;
+    background-size: cover;
+    color: white;
+}
+
+.col1Links {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    padding: 0px;
+    color: #fff;
+
+}
+
+.col2Links {
+    font-family:sans-serif;
+    font-size: 20px;
+    padding: 0px;
+    color: #fff;
+}
+
+.col3Links {
+    font-family:sans-serif;
+    font-size: 20px;
+    padding: 0px;
+    color: #fff;
+}
+
+ul li {
+    color: #fff;
+}
+
+body.navbar-open {
+    overflow: hidden;
+}
+
+body.navbar-open .container {
+    overflow: hidden;
+}
+
+.sub-item-indicator {
+    margin-left: 5px; /* Adjust the margin as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+  }
+
+  .logo img{
+
+    width: 270px;
+    height: 270px;
+    margin-left: 25px;
+  }
+
+  .logo{
+    margin-bottom : -70px;
+  }
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+
+  .title {
+    color: #000;
+  }
+
+  .body_title{
+    padding: 10px;
+  }
+  
+  .title_pages{
+    color: #120044;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    text-align: left;
+  }
+  .title_desc{
+    color: #120044;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    text-align: center;
+    
+  }
+.title_description{
+    padding-top: 10px;
+}
+
+.title_cataloge{
+    color: #120044;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    text-align: center;
+  }
+  .cataloge_desc {
+    color: #120044;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none; /* Remove the default underline */
+  }
+  
+  .cataloge_desc::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #120044;
+    transition: width 0.5s; /* Add a smooth transition for the underline effect */
+  }
+  
+  .cataloge_desc:hover::before {
+    width: 100%;
+  }
+  
+
+  .catalogeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed */
+  }
+  
+  .catalogeItem {
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .catalogeItem:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: #120044;
+    transition: width 0.5s;
+  }
+  
+  .catalogeItem:hover::before {
+    width: 100%;
+  }
+  
+  .catalogeImage {
+    width: 100%;
+    border-radius: 8px;
+    transition: opacity 0.5s; /* Add a smooth transition for the opacity effect */
+  }
+  
+  .catalogeItem:hover .catalogeImage {
+    opacity: 0.8; /* Adjust the opacity value as needed */
+  }
+  
+  
+  .titleCataloge {
+    position: absolute; /* Position absolute for overlaying the text */
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateY(-85%); /* Center the text horizontally */
+    color: red;
+    background-color: #fff; /* Background color for the text */
+    padding: 8px;
+    border-radius: 4px; /* Add some border-radius for rounded corners */
+  }
+  
