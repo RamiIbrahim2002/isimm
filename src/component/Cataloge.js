@@ -28,11 +28,12 @@ const Cataloge = () => {
     <div>
       <div className="row catalogeContainer">
         {catalogData.map((item) => (
-          <div key={item.id} className="col catalogeItem">
+          <div key={item.id} className="col-12 col-sm-6 col-md catalogeItem">
             <img src={item.imageUrl} alt={`Catalog Item ${item.id}`} className="catalogeImage" />
             <h3 className="titleCataloge">{item.title}</h3>
             <p className="cataloge_desc">{item.description}</p>
           </div>
+          //arja3 lena !
         ))}
       </div>
     </div>

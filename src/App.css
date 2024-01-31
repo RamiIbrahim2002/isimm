@@ -110,9 +110,9 @@
     z-index: 4;
     width: fit-content;
     height: auto;
-    background-color: #fff;
+    /*background-blend-mode : multiply;*/
     margin: 30px;
-    border-radius: 4px;
+    border-radius: 11px;
     cursor: pointer;
     transform: translateX(-100%);
   }
@@ -125,7 +125,7 @@
     width: 40px;
     height: 4px;
     margin: 10px 8px;
-    background-color: #000;
+    background-color: #ffffff;
     border-radius: 50px;
     transition: 0.2s;
   }
@@ -306,36 +306,63 @@ body.navbar-open .container {
     padding: 10px;
   }
   
-  .title_pages{
+  .title_pages {
     color: #120044;
     font-family: 'Playfair Display', serif;
-    font-size: 45px;
+    font-size: 4vw;
     text-align: left;
   }
+  
+  @media (max-width: 767px) {
+    .title_pages {
+      font-size: 6vw;
+    }
+  }
+  
   .title_desc{
     color: #120044;
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 2vw;
     text-align: center;
     
   }
-.title_description{
-    padding-top: 10px;
-}
+  .title_desc {
+    color: #120044;
+    font-family: 'Playfair Display', serif;
+    font-size: 2vw;
+    text-align: center;
+  }
+  
+  @media (max-width: 767px) {
+    .title_desc {
+      font-size: 3vw;
+    }
+  }
+  
+  
 
+/*
 .title_cataloge{
     color: #120044;
     font-family: 'Playfair Display', serif;
-    font-size: 40px;
+    font-size: 8vw;
     text-align: center;
   }
+  */
   .cataloge_desc {
     color: #120044;
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 2vw;
     text-align: center;
     text-decoration: none; /* Remove the default underline */
   }
+  
+  @media (max-width: 767px) {
+    .cataloge_desc {
+      font-size: 4vw;
+    }
+  }
+  
   
   .cataloge_desc::before {
     content: '';
@@ -361,7 +388,6 @@ body.navbar-open .container {
   
   .catalogeItem {
     text-align: center;
-    width: 30%;
     padding: 10px;
     box-sizing: border-box;
     margin: 10px;
@@ -396,13 +422,15 @@ body.navbar-open .container {
   
   
   .titleCataloge {
-    position: absolute; /* Position absolute for overlaying the text */
     bottom: 10px; /* Adjust as needed */
-    left: 50%;
-    transform: translateY(-85%); /* Center the text horizontally */
     color: red;
-    background-color: #fff; /* Background color for the text */
+    font-size: 2vw;
     padding: 8px;
     border-radius: 4px; /* Add some border-radius for rounded corners */
   }
   
+  @media (max-width: 767px) {
+    .titleCataloge {
+      font-size: 6vw;
+    }
+  }

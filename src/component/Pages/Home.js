@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '../../App.css'
-import Cataloge from './Cataloge';
-import BodyHeader from './BodyHeader';
+import Cataloge from '../Cataloge';
+import BodyHeader from '../BodyHeader';
+import Counter from '../Counter';
+
 const Home = () => {
   // Placeholder data for news items
   const newsData = [
@@ -24,19 +25,28 @@ const Home = () => {
   ];
 
   return (
-    <div class="container text-center">
-      <div>
-      
-      <BodyHeader title="Actualités" description="Les dernières actualités de l'IHEC Carthage : restez informés !"/>
-  <Cataloge />
-  <Cataloge />
-  <Cataloge />
-  <BodyHeader title="ISIMM en chiffres
-" description="
-La progression du nombre d’étudiants, du corps enseignant, des partenariats et bien d’autres indicateurs de témoignent l’évolution de l'ISIMM"/>
-</div>
-</div>
+    <div>
+      <div className="container text-center">
+        <BodyHeader title="Actualités" description="Les dernières actualités de l'IHEC Carthage : restez informés !" />
+        <Cataloge />
+        <Cataloge />
+        <Cataloge />
+        <BodyHeader
+          title="ISIMM en chiffres"
+          description="La progression du nombre d’étudiants, du corps enseignant, des partenariats et bien d’autres indicateurs de témoignent l’évolution de l'ISIMM"
+        />
+        <Cataloge />
+      </div>
 
+      <div className="container-fluid facts p-5 my-5" style={{ width: '100%', backgroundColor: '#3559E0' }}>
+        <div className="row gx-5 gy-4 py-5">
+          <Counter iconClass="fa-star" title="Experience" count={10} />
+          <Counter iconClass="fa-users" title="Our Trainers" count={8} />
+          <Counter iconClass="fa-check" title="Complete Project" count={3} />
+          <Counter iconClass="fa-mug-hot" title="Happy Students" count={300} />
+        </div>
+      </div>
+    </div>
   );
 };
 
