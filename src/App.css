@@ -367,6 +367,9 @@ body.navbar-open .container {
     font-size: 2vw;
     text-align: center;
     text-decoration: none; /* Remove the default underline */
+    white-space: nowrap; /* Prevent title from wrapping to a new line */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for long titles */
   }
   
   @media (max-width: 768px) {
@@ -401,7 +404,9 @@ body.navbar-open .container {
     padding: 10px;
     box-sizing: border-box;
     margin: 10px;
-    position: relative;
+    max-height: 500px; /* Set a maximum height for each item */
+    overflow: hidden; /* Hide content that exceeds the specified height */
+    
   }
   
   .catalogeItem:hover::before {
@@ -424,6 +429,7 @@ body.navbar-open .container {
     width: 100%;
     border-radius: 8px;
     transition: opacity 0.5s; /* Add a smooth transition for the opacity effect */
+    
   }
   
   .catalogeItem:hover .catalogeImage {
@@ -437,6 +443,9 @@ body.navbar-open .container {
     font-size: 2vw;
     padding: 4px;
     border-radius: 4px; /* Add some border-radius for rounded corners */
+    white-space: nowrap; /* Prevent title from wrapping to a new line */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for long titles */
   }
   
   @media (max-width: 768px) {

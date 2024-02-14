@@ -128,12 +128,9 @@ const MobileNavbar = () => {
       { label: 'Organigramme', url: '/gouvernance/organigramme' },
     ],
     Départements: [
-      { label: 'Département Gestion', url: '/departements/gestion' },
-      { label: 'Département Finance', url: '/departements/finance' },
-      { label: 'Départ Méthodes Quantitatives', url: '/departements/methodes-quantitatives' },
-      { label: 'Département Comptabilité', url: '/departements/comptabilite' },
-      { label: 'Département Economie', url: '/departements/economie' },
-      { label: 'Département Droit', url: '/departements/droit' },
+      { label: 'Département Informatique', url: '/departements/informatique' },
+      { label: 'Département Mathématiques', url: '/departements/mathematiques' },
+      { label: 'Département Technologie', url: '/departements/technologie' },
     ],
 
   };

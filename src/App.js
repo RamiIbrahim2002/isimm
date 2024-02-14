@@ -11,13 +11,15 @@ import './App.css';
 import Mission from './component/Pages/Mission';
 import Article_version_article from './component/Article_version_article';
 import Article_version_club from './component/Article_version_club';
+import Departments from './component/Pages/Departements';
+import Article_version_departement from './component/Article_version_departement';
 
   // Placeholder data for news items
   const catalogData = [
     {
       id: 1,
-      title: 'Catalog Item 1',
-      description: 'This is the description for Catalog Item 1.',
+      title: 'TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT',
+      description: 'This is the description for Catalog Item 1.This is the description for Catalog Item 1.This is the description for Catalog Item 1.',
       imageUrl: 'https://picsum.photos/300/200', // Replace with the actual image URL
     },
     {
@@ -27,7 +29,7 @@ import Article_version_club from './component/Article_version_club';
       imageUrl: 'https://picsum.photos/300/200', // Replace with the actual image URL
     },
     {
-      id: 3,
+      id: 3, // hkeyet e daprtment lena rahiiiiiii donc ki tetbadel tetbadel ghady , try to replace it with 5 w shouf item 3
       title: 'Catalog Item 3',
       description: 'This is the description for Catalog Item 3.',
       imageUrl: 'https://picsum.photos/300/200', // Replace with the actual image URL
@@ -35,6 +37,36 @@ import Article_version_club from './component/Article_version_club';
     // Add more catalog items as needed
   ];
 
+  const departmentData = [
+    {
+      id: 1,
+      name: 'informatique',
+      directeur: 'Hamel Lazhar',
+      description: 'sel3a mnayka',
+      imageUrl: 'https://picsum.photos/300/200',
+      tel: '151',
+      mail: 'lazhar.hamel@gmail.com',
+    },
+    {
+      id: 2,
+      name: 'mathematiques',
+      directeur: 'Math Director',
+      description: 'Math Department Description',
+      imageUrl: 'https://picsum.photos/300/200',
+      tel: '123',
+      mail: 'math.director@example.com',
+    },{
+      id: 2,
+      name: 'Technologie',
+      directeur: 'Math Director',
+      description: 'Math Department Description',
+      imageUrl: 'https://picsum.photos/300/200',
+      tel: '123',
+      mail: 'math.director@example.com',
+    },
+    // Add more departments as needed
+  ];
+  
 function App(){
   return(
     <>
@@ -74,6 +106,15 @@ function App(){
           socialLinks={[{ name: 'Facebook',  text: 'Follow on Facebook',url: 'https://www.facebook.com/', icon: 'https://picsum.photos/20/20' },
           { name: 'Instagram', text: 'Follow on Instagram' ,url: 'https://instagram.com/', icon: 'https://picsum.photos/20/20' },]}
           />} />
+          {/* added the new paths 2/13/2024*/}
+          <Route path="/departements" element={<Departments departmentData={departmentData} />} />
+            <Route path="/departements/:departmentName" element={<Article_version_departement 
+              directeur="Hamel Lazhar"
+              description="sel3a mnayka"
+              imageUrl="https://picsum.photos/300/200"
+              tel="151"
+              mail="lazhar.hamel@gmail.com"
+              />} />
 
         </Routes>
         </div>
